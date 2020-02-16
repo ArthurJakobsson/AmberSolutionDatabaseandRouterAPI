@@ -3,6 +3,13 @@ const meraki = require("meraki");
 const request = require("request");
 const configuration = meraki.Configuration;
 const mongo = require('mongodb').MongoClient
+const testerContent = require('./tester')
+var randomData = testerContent.method;
+var hello1 = testerContent.otherMethod;
+
+
+console.log(hello1())
+
 
 const url = 'mongodb://localhost:27017'
 
@@ -69,7 +76,7 @@ function getNetDevices(){
     
     meraki.DevicesController.getNetworkDevices(networkId) 
     .then(res => {
-        //console.log(res);
+        console.log(res);
         accessPointInfo = res[0]
     })
     .catch(err => {
@@ -78,7 +85,7 @@ function getNetDevices(){
 }
 //access client information
 function getClientHistory(){
-    //console.log("https://n127.meraki.com/api/v0/networks/"+networkInfo.id+"/clients/")
+    console.log("https://n127.meraki.com/api/v0/networks/"+networkInfo.id+"/clients/")
     const options = {
         url: "https://n127.meraki.com/api/v0/networks/"+networkInfo.id+"/clients/",
         headers: {
@@ -87,6 +94,8 @@ function getClientHistory(){
     };
     request(options, callback);
 }
+
+
 function callback(err, res, body) {
     //console.log('error:', err); // Print the error if one occurred
     console.log('statusCode:', res && res.statusCode); // Print the response status code if a response was received
@@ -129,7 +138,9 @@ function instertUpdate(updateUsers)
 function searchForNew(){
     console.log("\x1b[33m%s\x1b[0m" ,"Checking Server");
     var found=false;
-    getClientHistory();
+    //getClientHistory(); //this is the correct method, but I will be calling the method from tester to get new data every time
+    clientHistory.push(randomData())
+    console.log(userRecord)
     if (clientHistory!=userRecord){
         for (var outer in clientHistory)
         {
@@ -171,6 +182,6 @@ function startup(){
 }
 
 function constantSearch(){  
-    setInterval(searchForNew, 1000);
+    setInterval(searchForNew, 5000);
 }
 startup()
