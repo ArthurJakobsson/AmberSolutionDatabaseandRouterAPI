@@ -1,0 +1,48 @@
+{
+  "hosting": {
+    "site": "amberportal",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [ {
+      "source": "/search",
+      "function": "clientMonitoring"
+    },
+    {
+      "source": "/welcome",
+      "function": "welcome"
+    },
+    {
+      "source": "/qr/**",
+      "function": "setCookie"
+    },
+    {
+      "source":"/displayQr/**",
+      "function": "qrHost"
+    },
+    {
+      "source":"/norwich",
+      "function": "norwich"
+    },
+    {
+      "source":"/submitChoice",
+      "function": "submitChoice"
+    },
+    {
+      "source": "/store",
+      "function": "storeFunction"
+    },
+    {
+      "source": "/submitAdSelection",
+      "function": "submitAdSelection"
+    },
+    {
+      "source": "/store/**",
+      "function": "qrCodeRead"
+    }]
+  }
+}
+

@@ -1,0 +1,42 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "10"
+  },
+  "dependencies": {
+    "@angular/common": "^8.1.2",
+    "@angular/compiler": "^8.1.2",
+    "@angular/core": "^8.1.2",
+    "@angular/fire": "^5.2.1",
+    "@angular/platform-browser": "^8.1.2",
+    "@angular/platform-browser-dynamic": "^8.1.2",
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
+    "cookie-parser": "^1.4.4",
+    "cron": "^1.7.1",
+    "firebase": "^6.3.1",
+    "firebase-admin": "^8.0.0",
+    "firebase-functions": "^3.1.0",
+    "meraki": "^1.1.0",
+    "mongodb": "^3.3.0-beta2",
+    "qr-image": "^3.2.0",
+    "qrcode": "^1.4.1",
+    "twilio": "^3.33.2",
+    "zone.js": "^0.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}

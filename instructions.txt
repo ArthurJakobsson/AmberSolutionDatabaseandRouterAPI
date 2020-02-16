@@ -1,0 +1,34 @@
+This code is to be run locally for now or one can use ngrok to view it on multiple devices easily.
+
+The following node-dependencies need to be downloaded for this to run properly:
+- firebase-functions
+- cors
+- express
+- twilio
+- body-parser
+- request
+- qr-image
+- meraki
+- file system (should be available when node is downloaded)
+- cookie-parser
+
+
+A firebase account is required to run and deploy this application. 
+To run firebase locally, cd to the functions folder and enter 'firebase serve' to deploy the application.
+If you receive an error saying firebase command is not found, run 'alias firebase="`npm config get prefix`/bin/firebase"' which may fix the problem.
+
+To deploy externally run 'firebase deploy' (there were some problems so the application is not fully functioning with deploy).
+
+Everytime the function for searching is run, users.json and sent.json will be updated. Next time the code is run, if those pages are not wiped of information
+it will function improperly.
+
+Upon startup, those two pages should say only {"users":[]} and {"sent":[]}. 
+
+For every new router added to the network, information about it will have to be added to attributes.json.
+
+
+As of 8/20/2019 our Cisco Meraki Router Liscence expired and a new one will need to be created to run the routers properly. 
+A new twilio account will be needed if texts are going to be sent for the captive portal and for coupons.
+
+
+
